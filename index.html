@@ -4,13 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Phone Password</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1 style = "color: white;">Password: </h1>
         <center><input type="text" inputmode="numeric" /></center>
         <p style = "color: white;" id="answer"></p>
         <center><button onclick = "answerCheck();"><img src = "checkmark.jpg" width = "50" height = "50"></button></center>
+        Field A: <input type="text" id="demoA"/>
+        Field B: <textarea id="demoB"></textarea>
+<script>
+
+</script>
         <script type = "text/javascript" lang = "javascript1.2">
             function answerCheck()
             {
@@ -25,6 +30,20 @@
                     document.getElementById("answer").innerHTML="You are denied. :(";
                 }
             }
+            window.addEventListener("load", () => {
+                numpad.attach({target: document.getElementById("demoA")});
+                numpad.attach({
+                    target: document.getElementById("demoB"),
+                    max: 10, // MAX 10 DIGITS
+                    decimal: false, // NO DECIMALS ALLOWED
+                    onselect : () => { // CALL THIS AFTER SELECTING NUMBER
+                        alert("DEMO B number set.");
+                    },
+                    oncancel : () => { // CALL THIS AFTER CANCELING
+                        alert("DEMO B canceled.");
+                    }
+                });
+            });
         </script>
     </body>
 </html>
